@@ -49,7 +49,7 @@ class SnowFlake
   }
   void lookDown()
   {
-    if(get(myX,myY+4)==color(0)){
+    if(get(myX,myY+5)==color(0)){
       isMoving=true;
     }else{
       isMoving=false;
@@ -70,7 +70,7 @@ class SnowFlake
   }
   void wrap()
   {
-    if(myY>=396){
+    if(myY>=395){
       myY=0;
       myX=(int)(Math.random()*400);
     }
