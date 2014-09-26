@@ -22,11 +22,11 @@ void mouseDragged()
 {
   if(mouseButton==LEFT){
   stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
-  strokeWeight(10);
+  strokeWeight(15);
   line(pmouseX,pmouseY,mouseX,mouseY);
   }else if(mouseButton==RIGHT){
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(15);
   line(pmouseX,pmouseY,mouseX,mouseY);
 }
 }
