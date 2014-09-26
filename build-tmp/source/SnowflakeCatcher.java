@@ -1,5 +1,21 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class SnowflakeCatcher extends PApplet {
+
 SnowFlake[] balls;
-void setup()
+public void setup()
 {
   size(400,400);
   background(0);
@@ -8,7 +24,7 @@ void setup()
     balls[i]=new SnowFlake();
   }
 }
-void draw()
+public void draw()
 {
   for (int i=0; i<balls.length; i++){
     balls[i].lookDown();
@@ -18,7 +34,7 @@ void draw()
     balls[i].show();
   }
 }
-void mouseDragged()
+public void mouseDragged()
 {
   if(mouseButton==LEFT){
   stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
@@ -41,13 +57,13 @@ class SnowFlake
     myY=(int)(Math.random()*400);
     myColor=255; 
   }
-  void show()
+  public void show()
   {
     noStroke();
     fill(myColor);
     ellipse(myX, myY, 7,7);
   }
-  void lookDown()
+  public void lookDown()
   {
     if(get(myX,myY+4)==color(0)){
       isMoving=true;
@@ -56,23 +72,32 @@ class SnowFlake
     }
 
   }
-  void erase()
+  public void erase()
   {
     noStroke();
     fill(0);
     ellipse(myX,myY,9,9);
   }
-  void move()
+  public void move()
   {
    if(isMoving){
     myY++;
    }
   }
-  void wrap()
+  public void wrap()
   {
     if(myY>=396){
       myY=0;
       myX=(int)(Math.random()*400);
+    }
+  }
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "SnowflakeCatcher" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
     }
   }
 }
