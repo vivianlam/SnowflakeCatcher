@@ -11,8 +11,8 @@ void setup()
 void draw()
 {
   for (int i=0; i<balls.length; i++){
-    balls[i].lookDown();
     balls[i].erase();
+    balls[i].lookDown();
     balls[i].wrap();
     balls[i].move();
     balls[i].show();
