@@ -3,6 +3,7 @@ void setup()
 {
   size(400,400);
   background(0);
+  frameRate(120);
   balls=new SnowFlake[100];
   for(int i=0; i<balls.length; i++){
     balls[i]=new SnowFlake();
